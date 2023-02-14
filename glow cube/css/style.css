@@ -1,0 +1,81 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: black;
+    min-height: 100vh;
+    overflow: hidden;
+}
+section{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    transform: perspective(700px);
+}
+.box{
+    position: absolute;
+    transform-style: preserve-3d;
+    top: 60px;
+}
+.box .cube{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: animateCube 20s linear infinite;
+}
+@keyframes animateCube{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+.box .cube div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+
+}
+.box .cube div span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:radial-gradient(rgb(157, 160, 132),rgb(85, 46, 144),aliceblue) ;
+    transform: rotateY(calc(90deg * var(--i)))translateZ(100px);
+}
+.box .cube .top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: red;
+    transform: rotateX(90deg) translateZ(100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box .cube .top::before{
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgb(139, 105, 195);
+    transform: translateZ(-400px);
+    filter: blur(50px);
+    box-shadow: 0 0 120px white,0 0 200px white,0 0 300px white,0 0 400px white,0 0 500px white;
+}
